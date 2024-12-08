@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BigHaat E-Commerce</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #daa520;
+            scroll-behavior: smooth;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background-color: #a52a2a;
+            padding: 10px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            color: #a52a2a;
+        }
+
+        .navbar .logo img {
+            width: 140px;
+        }
+
+        .navbar .menu {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .menu a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .navbar .menu a:hover {
+            color: #ffdd57;
+        }
+
+        .navbar .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .navbar .search-bar input[type="text"] {
+            border: none;
+            padding: 8px;
+            font-size: 1em;
+            outline: none;
+            width: 250px;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .navbar .search-bar button {
+            background-color: #ffa500;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            color: white;
+        }
+
+        .navbar .search-bar button:hover {
+            background-color:#00008b;
+        }
+
+        .navbar .header-options {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .header-options .option {
+            color: white;
+            margin: 0 10px;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .navbar .header-options .option:hover {
+            color: #ffdd57;
+        }
+
+        .navbar .language-selector {
+            background-color: #fff;
+            color: #333;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        /* Hero Section Styling */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align text to one side */
+    background-image: url('https://static.toiimg.com/thumb/msid-97974628,imgsize-67720,width-400,resizemode-4/97974628.jpg'); /* Optional background image */
+    background-size: cover;
+    background-position: center;
+    height: 80vh; /* Adjust height as needed */
+    padding: 20px;
+    color: #292525;
+}
+
+.hero-text {
+    max-width: 500px;
+    margin-left: 50px; /* Adjust margin to position text */
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #a52a2a; /* Adjust button color */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.btn:hover {
+    background-color: #218838;
+}
+
+        /* CATEGORY SECTION */
+        .category-section {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 40px 0;
+            padding: 0 30px;
+            gap: 20px;
+        }
+
+        .category-heading {
+            text-align: center;
+            font-size: 2em;
+            color: #333;
+            margin: 40px 0;
+            font-weight: 700;
+        }
+
+        .category {
+            background-color: #fff;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 160px;
+            height: 160px;
+            text-align: center;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .category img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+
+        .category h3 {
+            color: #333;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .category:hover {
+            transform: scale(1.05);
+        }
+
+        /* BRANDS SECTION */
+        .brands-section {
+            background-color: #eaf7ea;
+            padding: 20px 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            text-align: center;
+        }
+
+        .brands-heading {
+            width: 100%;
+            text-align: center;
+            font-size: 2em;
+            color: #333;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .brand {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            width: 120px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .brand img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .brand:hover {
+            transform: scale(1.05);
+        }
+
+        /* GROWTH PROMOTERS SECTION */
+        .growth-promoters-section,
+        .smart-farming-section,
+        .seeds-section {
+            padding: 30px 0;
+            background-color: #fff;
+        }
+
+        .growth-promoters-heading,
+        .smart-farming-heading {
+            width: 100%;
+            text-align: center;
+            font-size: 2em;
+            color: #333;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .products-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 0 30px;
+        }
+
+        .product-card {
+            width: 220px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+
+        }
+
+        .product-card h4 {
+            font-size: 16px;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .product-card .price {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .product-card .discount {
+            font-size: 14px;
+            color: #e74c3c;
+        }
+
+        .product-card .saved-price {
+            font-size: 14px;
+            color: #27ae60;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+
+        /* FOOTER */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 0.9em;
+            margin-top: 20px;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        .footer a {
+            color: #ffdd57;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+
+        <div class="menu">
+            <a href="#">Home</a>
+            <a href="{% url 'products' %}">Products</a>
+            <a href="{% url 'about' %}" class="Button">About us</a>
+            <a href="#growth-promoters-section">Growth Promoters</a>
+            <a href="#smart-farming-section">Smart Farming</a>
+            <a href="#seeds-section">Seeds</a> <!-- Update link here -->
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search.product(under Devlopment)">
+            <button>Search</button>
+        </div>
+        <div class="header-options">
+
+            <a href="{% url 'login' %}" class="option">Login</a>
+            <a href="{% url 'Register' %}" class="option">Register</a>
+            <div class="language-selector">Language</div>
+        </div>
+    </div>
+
+   <!-- Hero Section -->
+<div class="hero-section">
+    <div class="hero-text">
+        <h1>Greetings </h1>
+        <p>Your premier destination for superior agricultural provisions..</p>
+        <p>At AgriSphere, we provide an extensive selection of premium agricultural inputs, including superior seeds, advanced fertilizers, potent pesticides, and cutting-edge smart farming tools.</p>
+        <p>We are committed to empowering farmers with top-tier products, fostering sustainable and profitable farming practices.</p>
+        <p>Navigate our expansive compendium of agricultural innovations, meticulously tailored to fulfill your every cultivation requirement.</p>
+        <a href="#products-section" class="btn">Explore Products</a>
+    </div>
+</div>
+
+
+    <!-- Category Section -->
+    <div class="category-section">
+        <h2 class="category-heading">Shop By Category</h2>
+        <div class="category">
+            <img src="https://organicmandya.com/cdn/shop/files/BasilSeeds_SabjaSeeds.jpg?v=1719566856&width=1024" alt="Seeds">
+            <h3>Seeds</h3>
+        </div>
+        <div class="category">
+            <img src="https://tiimg.tistatic.com/fp/1/007/555/inorganic-agricultural-fertilizers-for-agriculture-use-with-lite-yellow-color-646.jpg" alt="Fertilizers">
+            <h3>Fertilizers</h3>
+        </div>
+        <div class="category">
+            <img src="https://image.made-in-china.com/318f0j00dTNYeUtybDci/Hontai-2-mp4.webp" alt="Pesticides">
+            <h3>Pesticides</h3>
+        </div>
+        <div class="category">
+            <img src="https://jcblhandtools.com/wp-content/uploads/2024/05/Garden-Fork.webp" alt="Tools">
+            <h3>Tools</h3>
+        </div>
+    </div>
+
+    <!-- Brands Section -->
+    <div class="brands-section" id="brands-section">
+        <h2 class="brands-heading">Our Brands</h2>
+        <div class="brand">
+            <img src="{% static 'app/images/img.png' %}" alt="Brand 1"/>
+        </div>
+        <div class="brand">
+             <img src="{% static 'app/images/img_1.png' %}" alt="Brand 2"/>
+        </div>
+        <div class="brand">
+             <img src="{% static 'app/images/img_2.png' %}" alt="Brand 3"/>
+        </div>
+        <div class="brand">
+             <img src="{% static 'app/images/img_3.png' %}" alt="Brand 4"/>
+        </div>
+        <div class="brand">
+             <img src="{% static 'app/images/img_4.png' %}" alt="Brand 5"/>
+        </div>
+
+    </div>
+
+    <!-- Growth Promoters Section -->
+    <div class="growth-promoters-section" id="growth-promoters-section">
+        <h2 class="growth-promoters-heading">Growth Promoters</h2>
+        <div class="products-container">
+            <div class="product-card">
+                <img src="{% static 'app/images/img_5.png' %}" alt="Promoter 3"/>
+                <h4>Sagarika Gold Growth Promoter</h4>
+                <div class="price">$315.00</div>
+                <div class="discount">10% off</div>
+                <div class="saved-price">$18.00</div>
+            </div>
+            <div class="product-card">
+                <img src="{% static 'app/images/img_6.png' %}" alt="Promoter 2"/>
+                <h4>Fantac Plus Growth Promoter</h4>
+                <div class="price">$255.00</div>
+                <div class="discount">15% off</div>
+                <div class="saved-price">$21.25</div>
+            </div>
+            <div class="product-card">
+                <img src="{% static 'app/images/img_7.png' %}" alt="Promoter 3"/>
+                <h4>JANATHA AGRO SEAMAN GROWTH PROMOTER</h4>
+                <div class="price">$330.00</div>
+                <div class="discount">15% off</div>
+                <div class="saved-price">$21.25</div>
+            </div>
+            <div class="product-card">
+                <img src="{% static 'app/images/img_8.png' %}" alt="Promoter 4"/>
+                <h4>Isabion Biostimulant</h4>
+                <div class="price">$166.00</div>
+                <div class="discount">15% off</div>
+                <div class="saved-price">$21.25</div>
+            </div>
+            <div class="product-card">
+                <img src="{% static 'app/images/img_9.png' %}" alt="Promoter 5"/>
+                <h4>JANATHA SEAMAG - GROWTH PROMOTOR - MAGNESIUM (AMINO ACID)</h4>
+                <div class="price">$330.00</div>
+                <div class="discount">15% off</div>
+                <div class="saved-price">$21.25</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Smart Farming Section -->
+    <div class="smart-farming-section" id="smart-farming-section">
+        <h2 class="smart-farming-heading">Smart Farming</h2>
+        <div class="products-container">
+            <div class="product-card">
+                <img src="{% static 'app/images/img_10.png' %}" alt="Product 1"/>
+                <h4>BHARAT 2 IN 1 HAND WEEDER</h4>
+                <div class="price">$515.00</div>
+                <div class="discount">20% off</div>
+                <div class="saved-price">$24.00</div>
+            </div>
+            <div class="product-card">
+                <img src="{% static 'app/images/img_11.png' %}" alt="Product 2"/>
+                <h4>TAPAS HAND WEEDER</h4>
+                <div class="price">$379.00</div>
+                <div class="discount">10% off</div>
+                <div class="saved-price">$36.00</div>
+            </div>
+            <div class="product-card">
+                <img src="{% static 'app/images/img_12.png' %}" alt="Product 3"/>
+                <h4>TAPAS FARMER SAFETY KIT</h4>
+                <div class="price">$400.00</div>
+                <div class="discount">10% off</div>
+                <div class="saved-price">$36.00</div>
+            </div>
+            <div class="product-card">
+                <img src="{% static 'app/images/img_13.png' %}" alt="Product 4"/>
+                <h4>HECTARE HAND WEEDER - LWS 07</h4>
+                <div class="price">$560.00</div>
+                <div class="discount">10% off</div>
+                <div class="saved-price">$36.00</div>
+            </div>
+            <div class="product-card">
+                <img src="{% static 'app/images/img_14.png' %}" alt="Product 5"/>
+                <h4>DR ENTERPRISE FARMER SAFETY SHOES | LONG LENGTH PADDY SHOES | AGRICULTURE SHOES</h4>
+                <div class="price">$1599.00</div>
+                <div class="discount">10% off</div>
+                <div class="saved-price">$36.00</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Seeds Section -->
+    <div class="seeds-section" id="seeds-section">
+        <h2 class="seeds-heading">Seeds</h2>
+        <div class="products-container">
+            <div class="product-card">
+                <img src="{% static 'app/images/img_15.png' %}" alt="Set 1"/>
+                <h4>SAAHO TOMATO SEEDS [TO-3251]</h4>
+                <div class="price">$979.00</div>
+                <div class="discount">5% off</div>
+                <div class="saved-price">$9.50</div>
+            </div>
+            <div class="product-card">
+                <img src="{% static 'app/images/img_16.png' %}" alt="Set 2"/>
+                <h4>SYNGENTA IVORY WHITE RADISH</h4>
+                <div class="price">$542.00</div>
+                <div class="discount">10% off</div>
+                <div class="saved-price">$10.80</div>
+            </div>
+             <div class="product-card">
+                <img src="{% static 'app/images/img_20.png' %}" alt="Set 3"/>
+                <h4>Surabhi Coriander Seeds</h4>
+                <div class="price">$340.00</div>
+                <div class="discount">10% off</div>
+                <div class="saved-price">$10.80</div>
+            </div>
+             <div class="product-card">
+                <img src="{% static 'app/images/img_18.png' %}" alt="Set 4"/>
+                <h4>212 F1 Hybrid Brinjal Seeds</h4>
+                <div class="price">$240.00</div>
+                <div class="discount">10% off</div>
+                <div class="saved-price">$10.80</div>
+            </div>
+             <div class="product-card">
+                <img src="{% static 'app/images/img_19.png' %}" alt="Set 5"/>
+                <h4>NS 555 F1 Hybrid Cauliflower Seeds</h4>
+                <div class="price">$460.00</div>
+                <div class="discount">10% off</div>
+                <div class="saved-price">$10.80</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 BigHaat. All rights reserved.</p>
+    </div>
+</body>
+
+</html>
