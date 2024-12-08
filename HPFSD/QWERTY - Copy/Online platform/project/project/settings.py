@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-2lkox!ig6&9f30*b0t%!a!ygu(hcvm2y1l=-6&jun%!q4upz(l
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS=['agrifuture.onrender.com']
+CSRF_TRUSTED_ORIGINS=['https://agrifuture.onrender.com']
 
 
 # Application definition
